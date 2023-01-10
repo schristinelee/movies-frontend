@@ -13,14 +13,13 @@ import { MoviesIndex } from "./MoviesIndex";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Header />
-      <Login />
-      <LogoutLink />
-      <Signup />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

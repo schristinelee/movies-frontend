@@ -12,6 +12,11 @@ export function Home() {
   const [movies, setMovies] = useState([]);
   const [isMoviesShowVisible, setIsMoviesShowVisible] = useState(false);
   const [currentMovie, setCurrentMovie] = useState({});
+  const [isModalSignupVisible, setIsModalSignupVisible] = useState(true);
+
+  // const handleModalSignup = () => {
+  //   setIsModalSignupVisible(false);
+  // };
 
   const handleIndexMovies = () => {
     console.log("handleIndexMovies");
@@ -47,6 +52,7 @@ export function Home() {
   const handleClose = () => {
     console.log("handleClose");
     setIsMoviesShowVisible(false);
+    setIsModalSignupVisible(false);
   };
 
   useEffect(handleIndexMovies, []);
