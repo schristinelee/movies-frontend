@@ -1,0 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  font-family: 'Impact';
+  background-image: url('./assets/diagmonds.webp');
+  color:azure;
+  text-align: center;
+}
