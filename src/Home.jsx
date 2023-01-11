@@ -12,11 +12,6 @@ export function Home() {
   const [movies, setMovies] = useState([]);
   const [isMoviesShowVisible, setIsMoviesShowVisible] = useState(false);
   const [currentMovie, setCurrentMovie] = useState({});
-  const [isModalSignupVisible, setIsModalSignupVisible] = useState(true);
-
-  // const handleModalSignup = () => {
-  //   setIsModalSignupVisible(false);
-  // };
 
   const handleIndexMovies = () => {
     console.log("handleIndexMovies");
@@ -52,16 +47,22 @@ export function Home() {
   const handleClose = () => {
     console.log("handleClose");
     setIsMoviesShowVisible(false);
-    setIsModalSignupVisible(false);
   };
 
-  useEffect(handleIndexMovies, []);
+  const handleNewFavorite = (params) => {
+    axios.post("http://localhost:3000/favorites.json", params).then((response) => {
+      console.log(response, "Creating a favorite!");
+      window.location.href = "/";
+    });
+  };
+
+  useEffect(handleIndexMovies, handleNewFavorite, []);
 
   return (
     <div>
       <MoviesIndex movies={movies} onShowMovie={handleShowMovie} />
       <Modal show={isMoviesShowVisible} onClose={handleClose}>
-        <MoviesShow movie={currentMovie} onUpdateMovie={handleUpdateMovie} />
+        <MoviesShow movie={currentMovie} onUpdateMovie={handleUpdateMovie} onFavoriteNew={handleNewFavorite} />
       </Modal>
     </div>
   );

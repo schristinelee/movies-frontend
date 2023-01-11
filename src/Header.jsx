@@ -70,6 +70,13 @@ export function Header() {
                         Login
                       </a>
                     </li>
+                    |
+                    {/* <li className="nav-item">
+                      <a onClick={handleFavoriteShow} href="#">
+                        Favorites
+                      </a>
+                    </li>
+                    | */}
                   </>
                 ) : (
                   <li className="nav-item">
