@@ -7,7 +7,7 @@ export function MoviesShow(props) {
 
   return (
     <div>
-      <Imgix src={"https://image.tmdb.org/t/p/original" + props.movie.backdrop_path} width={300} height={400}></Imgix>
+      <Imgix src={"https://image.tmdb.org/t/p/original" + props.movie.backdrop_path} width={180} height={250}></Imgix>
       <h1>{props.movie.title}</h1>
       <p>{props.movie.overview}</p>
       <p>Release date: {props.movie.release_date}</p>

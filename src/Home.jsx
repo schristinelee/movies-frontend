@@ -49,20 +49,13 @@ export function Home() {
     setIsMoviesShowVisible(false);
   };
 
-  const handleNewFavorite = (params) => {
-    axios.post("http://localhost:3000/favorites.json", params).then((response) => {
-      console.log(response, "Creating a favorite!");
-      window.location.href = "/";
-    });
-  };
-
-  useEffect(handleIndexMovies, handleNewFavorite, []);
+  useEffect(handleIndexMovies, []);
 
   return (
     <div>
       <MoviesIndex movies={movies} onShowMovie={handleShowMovie} />
       <Modal show={isMoviesShowVisible} onClose={handleClose}>
-        <MoviesShow movie={currentMovie} onUpdateMovie={handleUpdateMovie} onFavoriteNew={handleNewFavorite} />
+        <MoviesShow movie={currentMovie} onUpdateMovie={handleUpdateMovie} />
       </Modal>
     </div>
   );
